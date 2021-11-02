@@ -76,7 +76,7 @@ function PreloadScreenings() {
           <Box>
             <Button
               component={RouterLink}
-              to="/Nbody"
+              to="/CreateScreening"
               variant="contained"
               color="primary"
             >

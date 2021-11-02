@@ -22,10 +22,10 @@ func CreateDepartment(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": department})
 }
 
-// GET /department/:id
+// GET /department/:uid
 func GetDepartment(c *gin.Context) {
 	var department entity.Department
-	id := c.Param("id")
+	id := c.Param("uid")
 	if err := entity.DB().Raw("SELECT * FROM departments WHERE id = ?", id).Scan(&department).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return

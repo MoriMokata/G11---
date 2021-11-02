@@ -16,6 +16,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -94,6 +95,11 @@ export default function ButtonAppBar() {
                   <ListItemText>{item.name}</ListItemText>
                 </ListItem>
               ))}
+              <ListItem button onClick={SignOut}>
+              <ListItemIcon> <ExitToAppIcon/></ListItemIcon>
+              <ListItemText>SignOut</ListItemText>
+              </ListItem>
+
             </List>
           </Drawer>
 

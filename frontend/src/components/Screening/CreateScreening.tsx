@@ -165,7 +165,7 @@ function CreateScreening() {
     return (
 
         <Container className={classes.container} maxWidth="md">
-          <Snackbar open={success} autoHideDuration={2000} onClose={handleClose} TransitionProps={{onExit: () => {window.location.href="/HistoryScreening";}}}>
+          <Snackbar open={success} autoHideDuration={2000} onClose={handleClose} TransitionProps={{onExit: () => {window.location.href="/PreloadScreenings";}}}>
             <Alert onClose={handleClose} severity="success">
                บันทึกข้อมูลสำเร็จ
             </Alert>
@@ -370,7 +370,7 @@ function CreateScreening() {
                             color="inherit"
 
                             component={RouterLink}
-                            to="/Nbody"   
+                            to="/HistoryScreenings"   
                             >
 
                             กลับ

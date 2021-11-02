@@ -68,6 +68,8 @@ export default function Body() {
     
     
     const [MedicalRecord, setMedicalRecord] = useState<MedicalRecordInterface[]>([]);
+
+
     const getMedicalRecord = async() => {
         const apiUrl = "http://localhost:8080/api/ListMedicalRecord";
         const requestOptions = {

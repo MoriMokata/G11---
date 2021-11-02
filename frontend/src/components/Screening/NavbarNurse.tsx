@@ -9,16 +9,15 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import HomeIcon from "@material-ui/icons/Home";
 import AssignmentIcon from "@material-ui/icons/Assignment";
-
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-
 import History from '@material-ui/icons/Book';
-
+import Divider from "@material-ui/core/Divider";
+import HistoryDrugAllgergy from '../DrugAllergy/HistoryDrugAllgergy';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
         width: theme.spacing(3),
         height: theme.spacing(3),
       },
-      list: { width: 250 },
+      list: { width: 300 },
   }),
 );
 
@@ -52,10 +51,17 @@ export default function ButtonAppBar() {
   };
   
   const menu = [
-    { name: "หน้าเเรก", icon: <HomeIcon />, path: "/" },
-    { name: "ข้อมูลการซักประวัติ", icon: <History />, path: "/HistoryScreening" },
-    { name: "ใบบันทึกผลการซักประวัติ", icon: <AssignmentIcon  />, path: "/Nbody" },
+    { name: "ระบบการซักประวัติเบื้องต้น", icon: <HomeIcon />, path: "/" },
+    { name: "ข้อมูลการซักประวัติเบื้องต้น", icon: <History />, path: "/HistoryScreenings" },
+    { name: "บันทึกผลการซักประวัติเบื้องต้น", icon: <AssignmentIcon  />, path: "/CreateScreening" },
   ]
+
+  const menu2 = [
+    { name: "ระบบประวัติการแพ้ยา", icon: <HomeIcon />, path: "/" },
+    { name: "ข้อมูลประวัติการแพ้ยา", icon: <History />, path: "/HistoryDrugAllgergy" },
+    { name: "บันทึกประวัติการแพ้ยา", icon: <AssignmentIcon  />, path: "/CreateDrugAllergy" },
+  ]
+
 
   const [openDrawer, setOpenDrawer] = React.useState(false);
 
@@ -85,16 +91,27 @@ export default function ButtonAppBar() {
               onClick={toggleDrawer(false)} 
               onKeyDown={toggleDrawer(false)}
             >
+              
               {menu.map((item, index) => (
                 <ListItem key={index} button component={RouterLink} to={item.path}>
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText>{item.name}</ListItemText>
                 </ListItem>
               ))}
+                <Divider />
+                {menu2.map((item, index) => (
+                <ListItem key={index} button component={RouterLink} to={item.path}>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText>{item.name}</ListItemText>
+                </ListItem>
+                
+              ))}
+              <Divider />
               <ListItem button onClick={signout}>
               <ListItemIcon> <ExitToAppIcon/></ListItemIcon>
               <ListItemText>SignOut</ListItemText>
               </ListItem>
+              
             </List>
           </Drawer>
 

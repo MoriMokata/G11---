@@ -7,8 +7,11 @@ import PreloadScreenings from './components/Screening/HistoryScreening';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CreateScreening from './components/Screening/CreateScreening';
 import NavbarNurse from "./components/Screening/NavbarNurse";
+import HomeScreening from './components/Screening/HomeScreening';
+import CreateDrugAllergy from './components/DrugAllergy/CreateDrugAllergy';
 
 import Home from './components/LabResult/Home';
+import HistoryDrugAllgergy from './components/DrugAllergy/HistoryDrugAllgergy';
 
 function App() {
   const [token, setToken] = useState<string>("");
@@ -45,8 +48,11 @@ let CheckRole = String(localStorage.getItem("Role"));
             <Fragment>
             <NavbarNurse />
             <Switch>
-              <Route exact path="/" component={PreloadScreenings} />
+              <Route exact path="/" component={HomeScreening}/>
+              <Route exact path="/HistoryScreenings" component={PreloadScreenings} />
               <Route exact path="/CreateScreening" component={CreateScreening} />
+              <Route exact path="/CreateDrugAllergy" component={CreateDrugAllergy} />
+              <Route exact path="/HistoryDrugAllgergy" component={HistoryDrugAllgergy} />
             </Switch>
           </Fragment>
           </>
