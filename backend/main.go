@@ -24,6 +24,7 @@ func main() {
 		protected := api.Use(middlewares.Authorizes())
 		{
 			//api Diseases
+			//df
 			protected.GET("/api/ListDiseases", Disease.ListDiseases)
 
 			//api DrugAllergy
